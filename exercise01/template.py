@@ -17,20 +17,29 @@ def make_arg_parser():
                       default=argparse.SUPPRESS,
                       required=True,
                       help="Path to reference fasta [required]")
+    parser.add_argument("-t","--taxonomy",
+                      default=None,
+                      required=True,
+                      help="Path to taxonomy file [required]")
+    parser.add_argument("-o","--output",
+                      default=None,
+                      required=True,
+                      help="Path to output file [required]")
     parser.add_argument("-c","--command",
-                      default='embalm',
-                      help="Path to EMBALMER command") 
+                      default='./burst',
+                      help="Path to BURST command") 
     parser.add_argument("-V","--verbose",
                       action="store_true",
                       help="Verbose output")
     return parser
 
-# Runs embalmer in --inline mode to obtain an alignment ID of two sequences
-def run_embalmer(query, ref, embalmer_cmd='embalm', verbose=False):
+# Runs BURST to search query sequences against reference sequences
+def run_burst(query, ref, taxonomy, output, burst_cmd='./burst', verbose=False):
     """thread worker function"""
 
     ### YOUR CODE HERE ###
-    
+
+    print(cmd)
     return run_command(cmd, verbose=verbose)
 
 # runs the given command and returns return value and output
@@ -49,5 +58,4 @@ if __name__ == '__main__':
 
     
     ### YOUR CODE HERE ###
-
 
